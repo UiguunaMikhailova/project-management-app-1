@@ -40,6 +40,9 @@ export default function SignUpForm() {
     setIsLoading(true);
     const { login, password } = data;
     try {
+      toast.info(
+        'При первом подключении сервер отвечает с задержкой в минуту, подождите, пожалуйста'
+      );
       const userSignUp = await signup(data).unwrap();
       dispatch(setUser(userSignUp));
       const userSignIn = await signin({ login, password }).unwrap();
@@ -168,7 +171,7 @@ export default function SignUpForm() {
                 message: intl.formatMessage({ id: `${'max_length'}` }),
               },
               pattern: {
-                value: /^(?=.*\d)(?=.*[a-z])(?=.*[@$!%*#?&])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/,
+                value: /^[a-zA-Z0-9]+$/i,
                 message: intl.formatMessage({ id: `${'password_pattern'}` }),
               },
             })}

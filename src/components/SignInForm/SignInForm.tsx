@@ -39,6 +39,9 @@ export default function SignInForm() {
     setIsDisable(true);
     const { login, password } = data;
     try {
+      toast.info(
+        'При первом подключении сервер отвечает с задержкой в минуту, подождите, пожалуйста'
+      );
       const userSignIn = await signin({ login, password }).unwrap();
       dispatch(setToken(userSignIn));
       localStorage.setItem('token', userSignIn.token);
@@ -137,7 +140,7 @@ export default function SignInForm() {
                 message: intl.formatMessage({ id: `${'max_length'}` }),
               },
               pattern: {
-                value: /^(?=.*\d)(?=.*[a-z])(?=.*[@$!%*#?&])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/,
+                value: /^[a-zA-Z0-9]+$/i,
                 message: intl.formatMessage({ id: `${'password_pattern'}` }),
               },
             })}
