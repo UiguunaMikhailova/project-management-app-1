@@ -12,7 +12,7 @@ export const boardAPI = createApi({
       if (token) {
         headers.set('authorization', `Bearer ${token}`);
       } else {
-        document.location.href = 'https://rsboards.netlify.app/#/welcome';
+        document.location.href = 'https://melodious-tartufo-4b154e.netlify.app/';
       }
       return headers;
     },
