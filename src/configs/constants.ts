@@ -1,2 +1,2 @@
-const URL = 'https://prompt-twig-production.up.railway.app/';
+const URL = 'https://kanban-rest-4rc5.onrender.com/';
 export { URL };
