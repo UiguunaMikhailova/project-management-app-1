@@ -126,9 +126,11 @@ export default function BoardPage() {
         } else {
           dropTaskBtwColumns(source.index, destination.index, startColumn!, finishColumn!);
         }
-
-        currTask &&
-          (await updateTask({
+        if (currTask) {
+          if (!currTask?.description.length) {
+            currTask.description = ' ';
+          }
+          await updateTask({
             idTask: currTask.id,
             idColumn: startColumn!.id,
             body: {
@@ -139,7 +141,8 @@ export default function BoardPage() {
               boardId,
               columnId: finishColumn!.id,
             },
-          }).then(() => setIsDropping(false)));
+          }).then(() => setIsDropping(false));
+        }
       }
 
       if (type === 'column') {

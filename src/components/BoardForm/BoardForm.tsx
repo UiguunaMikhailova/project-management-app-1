@@ -43,6 +43,9 @@ export default function BoardForm({
   }
 
   const onSubmit = async ({ title, description }: FormInputs) => {
+    if (!description.length) {
+      description = ' ';
+    }
     setIsDisable(true);
     try {
       if (id) {
@@ -132,22 +135,7 @@ export default function BoardForm({
               error={!!errors.description}
               defaultValue={id ? description : ''}
               {...register('description', {
-                required: {
-                  value: true,
-                  message: intl.formatMessage({ id: `${'description_required'}` }),
-                },
-                minLength: {
-                  value: 1,
-                  message: intl.formatMessage({ id: `${'task_min_length'}` }),
-                },
-                maxLength: {
-                  value: 100,
-                  message: intl.formatMessage({ id: `${'description_max_length'}` }),
-                },
-                pattern: {
-                  value: /(?=.*\S)/,
-                  message: intl.formatMessage({ id: `${'text_pattern'}` }),
-                },
+                required: false,
               })}
             />
             <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>

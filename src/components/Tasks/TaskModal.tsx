@@ -44,6 +44,9 @@ export default function TaskModal({
   } = useForm<{ title: string; description: string }>({ mode: 'onChange' });
 
   const onSubmit = async ({ title, description }: Omit<TTaskRequest, 'userId'>) => {
+    if (!description.length) {
+      description = ' ';
+    }
     setIsDisable(true);
     if (isCreate) {
       await createHandler({ title, description });
@@ -145,24 +148,7 @@ export default function TaskModal({
               label={errors.description ? errors.description.message : theme.description}
               error={!!errors.description}
               defaultValue={task?.description}
-              {...register('description', {
-                required: {
-                  value: true,
-                  message: intl.formatMessage({ id: `${'description_required'}` }),
-                },
-                minLength: {
-                  value: 1,
-                  message: intl.formatMessage({ id: `${'task_min_length'}` }),
-                },
-                maxLength: {
-                  value: 100,
-                  message: intl.formatMessage({ id: `${'description_max_length'}` }),
-                },
-                pattern: {
-                  value: /(?=.*\S)/,
-                  message: intl.formatMessage({ id: `${'text_pattern'}` }),
-                },
-              })}
+              {...register('description', { required: false })}
             />
             <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
               <Button type="submit" variant="contained" sx={{ mt: 2 }} disabled={isDisable}>
