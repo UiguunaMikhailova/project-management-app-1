@@ -16,11 +16,11 @@ export const messages = {
     developer_one: 'Уйгууна',
     developer_two: 'Дарья',
     team_role: 'Разработчик',
-    team_role_lead: 'Лидер группы',
+    team_role_lead: 'Тимлид',
     lead_role_description:
-      'Осуществила деплой бекенда, реализовала страницы Main Route и работу досками, а также Board Route и работу с колонками, добавила загрузку файла в таск',
+      'Осуществила деплой бекенда, реализовала страницы Main Route и работу с досками, а также Board Route и работу с колонками, добавила загрузку файла в таск',
     role_one_description:
-      'Настроила Redux и Routes, реализовала регистрацию и авторизацию пользователя с валидацией, создала страницу Edit Profile, осуществила работу с тасками в колонке, добавила Drag-and-drop, поиск тасков пользователя',
+      'Настроила Redux Toolkit Query и приватные Routes, реализовала создание, удаление, редактирование тасков в колонке, Drag-and-drop, поиск тасков пользователя, регистрацию пользователя, страницу Edit Profile',
     role_two_description:
       'Создала структуру и дизайн приложения, модальное окно, реализовала главную и 404 страницы, осуществила перевод приложения',
     enter: 'Войти',
@@ -35,7 +35,7 @@ export const messages = {
     login_pattern: 'Логин из латинских букв или цифр',
     password_required: 'Пароль обязателен',
     pass_min_length: 'Минимум 6 символов',
-    password_pattern: 'Cодержит латинские буквы или цифры',
+    password_pattern: 'Cодержит латинские буквы и цифры',
     edit_profile: 'Редактирование профиля',
     edit: 'Редактировать',
     name_placeholder: 'Имя',
@@ -116,7 +116,7 @@ export const messages = {
     login_pattern: 'Latin letters or numbers only',
     password_required: 'Password required',
     pass_min_length: 'Min: 6 characters',
-    password_pattern: 'Latin letters or numbers only',
+    password_pattern: 'Latin letters and numbers only',
     edit_profile: 'Edit profile',
     edit: 'Edit profile',
     name_placeholder: 'Name',

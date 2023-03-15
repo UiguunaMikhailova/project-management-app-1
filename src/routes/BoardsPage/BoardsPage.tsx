@@ -8,7 +8,7 @@ import BoardCard from '../../components/BoardCard';
 import BoardForm from '../../components/BoardForm';
 import { IBoard } from 'interfaces/IBoard';
 import { ErrorAuth } from 'interfaces/IUser';
-import { Backdrop, Box, Button, CircularProgress } from '@mui/material';
+import { Backdrop, Box, Button, CircularProgress, Typography } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import './BoardsPage.css';
 
@@ -36,7 +36,28 @@ export default function BoardsPage() {
       <div>
         {isLoadingData && (
           <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={true}>
-            <CircularProgress color="inherit" size={60} />
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                marginTop: '-150px',
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: 20,
+                  maxWidth: 600,
+                  textAlign: 'center',
+                  marginBottom: '100px',
+                  padding: '0 10px',
+                }}
+              >
+                При первом подключении ответ от сервера может длиться больше минуты, подождите,
+                пожалуйста
+              </Typography>
+              <CircularProgress color="inherit" size={60} />
+            </div>
           </Backdrop>
         )}
         <div className="boards-container">

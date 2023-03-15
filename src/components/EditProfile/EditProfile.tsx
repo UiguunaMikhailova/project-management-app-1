@@ -200,7 +200,7 @@ export default function EditProfile() {
                 message: intl.formatMessage({ id: `${'login_max_length'}` }),
               },
               pattern: {
-                value: /^[A-Za-zА-Яа-я]+$/i,
+                value: /^[A-Za-zА-Яа-я ,.'-]+$/i,
                 message: intl.formatMessage({ id: `${'name_pattern'}` }),
               },
             })}
@@ -278,7 +278,7 @@ export default function EditProfile() {
                 message: intl.formatMessage({ id: `${'max_length'}` }),
               },
               pattern: {
-                value: /^[a-zA-Z0-9]+$/i,
+                value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/,
                 message: intl.formatMessage({ id: `${'password_pattern'}` }),
               },
             })}
